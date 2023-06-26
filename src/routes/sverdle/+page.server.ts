@@ -1,8 +1,9 @@
-import { fail } from '@sveltejs/kit';
+import { fail, error } from '@sveltejs/kit';
 import { Game } from './game';
 import type { PageServerLoad, Actions } from './$types';
 
 export const load = (({ cookies }) => {
+	throw error(404, 'Not found');
 	const game = new Game(cookies.get('sverdle'));
 
 	return {
